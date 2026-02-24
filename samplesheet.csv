@@ -1,0 +1,2 @@
+sample_id,bam,bai
+SAMPLE1,/path/to/sample1.bam,/path/to/sample1.bam.bai
