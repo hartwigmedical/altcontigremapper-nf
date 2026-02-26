@@ -9,7 +9,7 @@ nextflow run main.nf --input samplesheet.csv --genome_fasta /path/to/ref.fa --ou
 ```
 
 | Parameter | Description | Default |
-|---|---|---|
+| --- | --- | --- |
 | `--input` | CSV samplesheet with columns `sample_id,bam,bai` | required |
 | `--genome_fasta` | Reference genome FASTA | required |
 | `--outdir` | Output directory | `results` |

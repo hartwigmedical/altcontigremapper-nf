@@ -25,7 +25,7 @@ process ALTCONTIGREMAPPER {
         -orig_bam_file ${bam} \\
         -ref_genome ${genome_fasta} \\
         -output_file ${sample_id}.remapped.bam \\
-        -bamtool \$(which samtools) \\
+        -bamtool ${params.samtools_path} \\
         -threads ${task.cpus}
     """
 }
