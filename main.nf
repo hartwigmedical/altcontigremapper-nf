@@ -2,13 +2,6 @@
 
 nextflow.enable.dsl = 2
 
-params.input       = null   // CSV samplesheet: sample_id,bam,bai
-params.genome_fasta = null  // Reference genome FASTA
-params.outdir      = 'results'
-
-if (!params.input)        { error "Please provide --input samplesheet.csv" }
-if (!params.genome_fasta) { error "Please provide --genome_fasta /path/to/ref.fa" }
-
 process ALTCONTIGREMAPPER {
     tag "${sample_id}"
     label 'process_high'
@@ -38,7 +31,10 @@ process ALTCONTIGREMAPPER {
 }
 
 workflow {
-    Channel
+    if (!params.input)        { error "Please provide --input samplesheet.csv" }
+    if (!params.genome_fasta) { error "Please provide --genome_fasta /path/to/ref.fa" }
+
+    channel
         .fromPath(params.input)
         .splitCsv(header: true)
         .map { row -> [row.sample_id, file(row.bam), file(row.bai)] }
