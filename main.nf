@@ -13,6 +13,7 @@ process ALTCONTIGREMAPPER {
     input:
     tuple val(sample_id), path(bam), path(bai)
     path genome_fasta
+    path genome_fasta_img
 
     output:
     tuple val(sample_id), path("${sample_id}.remapped.bam"), path("${sample_id}.remapped.bam.bai"), emit: bam
@@ -40,5 +41,5 @@ workflow {
         .map { row -> [row.sample_id, file(row.bam), file(row.bai)] }
         .set { ch_samples }
 
-    ALTCONTIGREMAPPER(ch_samples, file(params.genome_fasta))
+    ALTCONTIGREMAPPER(ch_samples, file(params.genome_fasta), file("${params.genome_fasta}.img"))
 }
