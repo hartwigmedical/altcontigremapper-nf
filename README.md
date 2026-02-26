@@ -1,6 +1,6 @@
 # AltContigRemapper-nf
 
-Nextflow DSL2 pipeline that remaps BAM file alignments to alternative contigs using Hartwig Medical Foundation's [bamtools AltContigRemapper](https://github.com/hartwigmedical/hmftools/tree/master/bam-tools).
+Nextflow DSL2 pipeline that remaps BAM file alignments to alternative contigs for HLA-typing using Hartwig Medical Foundation's [bamtools AltContigRemapper](https://github.com/hartwigmedical/hmftools/tree/master/bam-tools).
 
 ## Usage
 
